@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from pymongo import MongoClient
 
 class Buscador:
     def BuscarPDF():
@@ -23,6 +24,8 @@ class CadastrarArquivos():
 class Facade:
     '''Fachada com os subsistemas'''
     def __init__(self):
+        client = MongoClient()
+        client = MongoClient('mongodb://localhost:8000')
         self.buscador = Buscador.BuscarPDF()
 
 if __name__ == "__main__":
