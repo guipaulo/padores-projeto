@@ -6,6 +6,7 @@ class Facade():
     '''Fachada com os subsistemas'''
     def __init__(self):
         self.buscador = Buscador.BuscarPDF()
+        self.CadastrarArquivos()
 
 class Buscador():
     def BuscarPDF():
