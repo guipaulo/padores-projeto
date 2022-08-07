@@ -2,7 +2,12 @@ import os
 from pathlib import Path
 from pymongo import MongoClient
 
-class Buscador:
+class Facade():
+    '''Fachada com os subsistemas'''
+    def __init__(self):
+        self.buscador = Buscador.BuscarPDF()
+
+class Buscador():
     def BuscarPDF():
         contador = 0
         palavra = str(input('Digite a palavra-chave: '))
@@ -13,20 +18,16 @@ class Buscador:
                     print(os.path.join(file_name))
                     print(' ')
                     contador+=1
-        print(f'Foram encontrados {contador} arquivos!')
 
 class Interface():
     pass
 
 class CadastrarArquivos():
-    pass
-
-class Facade:
-    '''Fachada com os subsistemas'''
-    def __init__(self):
-        client = MongoClient()
-        client = MongoClient('mongodb://localhost:8000')
-        self.buscador = Buscador.BuscarPDF()
+    client = MongoClient('mongodb://localhost:8000')
+    banco = client.crawler_db
+    dados_crawler = banco.dados_crawler
+    documento1 = Buscador.BuscarPDF()
+    dados_crawler.insert_one(documento1)
 
 if __name__ == "__main__":
     Aplicacao = Facade()
