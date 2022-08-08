@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from pymongo import MongoClient
+import pymongo
 
 class Facade():
     '''Fachada com os subsistemas'''
