@@ -9,9 +9,9 @@ class Facade():
         BancoDados = cliente['banco_de_dados']
         colecao = BancoDados['documentos']
 
+        self.insert_arq = Arquivos.Inserir('1', 'Arquivo exemplo')
         palavra = str(input('Digite a palavra-chave: '))
         self.buscador = Buscador.BuscarPDF(palavra)
-        #self.CadastrarArquivos()
 
 class Buscador():
     def BuscarPDF(palavra):
