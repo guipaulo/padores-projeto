@@ -5,26 +5,29 @@ from pymongo import MongoClient
 class Facade():
     '''Fachada com os subsistemas'''
     def __init__(self):
+        cliente = pymongo.MongoClient("mongodb://localhost:27017/")
+        BancoDados = cliente['banco_de_dados']
+        colecao = BancoDados['documentos']
+
         palavra = str(input('Digite a palavra-chave: '))
         self.buscador = Buscador.BuscarPDF(palavra)
         #self.CadastrarArquivos()
 
 class Buscador():
     def BuscarPDF(palavra):
-        contador = 0
-        for file in os.listdir("/home/paulo/Downloads"):
-            if file.endswith(".pdf"):
-                file_name = Path(file).stem
-                if palavra in file_name:
-                    print(os.path.join(file_name))
-                    print(' ')
-                    contador+=1
+        for item in Facade.colecao.find({'text': palavra}):
+            print(item)
 
 class InterfaceGUI():
     pass
 
-class CadastrarArquivos():
-    pass
+class Arquivos(Facade):
+    def Inserir(id = '', text = ''):
+        documento = {"id": id, "texto": text}
+        d = Facade.colecao.insert_one(documento)
+    def Remover(id = ''):
+        documento = {"id ": id}
+        Facade.colecao.delete_one(documento)
 
 if __name__ == "__main__":
     Aplicacao = Facade()
