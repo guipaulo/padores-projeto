@@ -7,7 +7,7 @@ class Facade():
     def __init__(self):
         self.insert_arq = Arquivos.Inserir('1', 'Arquivo exemplo')
         palavra = str(input('Digite a palavra-chave: '))
-        self.buscador = Buscador.BuscarPDF(palavra)
+        self.buscador = Buscador.BuscarPDF('exemplo')
 
 class Buscador():
     def BuscarPDF(palavra):
