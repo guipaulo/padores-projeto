@@ -1,13 +1,21 @@
-import requests 
+import os
+from urllib import response
+import requests
 
 class Downloader:
     def Download():
-        url = str(input('Insira o URL do arquivo desejado'))
-        endereco = '/home/paulo/Documentos'
-        resposta = requests.get(url)
-        if resposta.status_code == requests.codes.OK:
-            with open(endereco, 'wb') as novo_arquivo:
-                novo_arquivo.write(resposta.content)
-        print("Download finalizado. Arquivo salvo em: {}".format(endereco))
+        dir = '/home/paulo/Documentos'
+        urls = []
+        entrada = str(input('Insira o(s) URL(s) do arquivo(s) desejado(s) '))
+        entrada.split(',')
+        urls.append(entrada)
+
+        for url in urls:
+            response = requests.get(url)
+
+            if response.status_code == 200:
+                arq_path = os.path.join(dir, os.path.basename(url))
+                with open(arq_path, 'wb') as f:
+                    f.write(response.content)
 
 Downloader.Download()
