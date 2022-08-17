@@ -1,10 +1,18 @@
-import os
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
+import os, sys
 
-class Removerdor:
+
+class Removedor:
     def Remover():
-        arq = str(input('Qual arquivo deseja remover? '))
-        for file in os.listdir("/home/paulo/Documentos"):
-            if os.path.exists(arq):
-                os.remove(arq)
-            else:
-                print('O arquivo n√£o existe!')
+        filename = str(input('Qual arquivo deseja remover? '))
+        user = os.getlogin()
+        file = f'C:\\Users\\{user}\\Documents\\{filename}'
+
+        if os.path.exists(file):
+            os.remove(file)
+        else:
+            print('O arquivo n„o existe!')
+
+
+Removedor.Remover()

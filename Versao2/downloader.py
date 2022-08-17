@@ -4,7 +4,7 @@ import requests
 
 class Downloader:
     def Download():
-        dir = '/home/paulo/Documentos'
+        dir = "C:/Users/fernando/Documents"
         urls = []
         entrada = str(input('Insira o(s) URL(s) do arquivo(s) desejado(s) '))
         entrada.split(',')
