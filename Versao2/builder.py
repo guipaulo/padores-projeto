@@ -1,8 +1,23 @@
 import buscador
 import downloader
 import remover
+from abc import ABC, abstractmethod
 
-class Builder:
+'''DIRETOR É IMPLEMENTADO NA FACHADA, QUE DEFINE A ORDEM
+DE INICIALIZAÇÃO DE CADA MÓDULO'''
+
+class Builder(ABC):
+
+    def Buscar(self) -> None:
+        pass
+
+    def Download(self) -> None:
+        pass
+
+    def Remover(self) -> None:
+        pass
+
+class ConcreteBuilder:
 
     def __init__(self) -> None:
         self.buscador = buscador.Buscador()

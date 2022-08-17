@@ -1,15 +1,15 @@
-from builder import Builder
+from builder import ConcreteBuilder
 
 
 class Facade:
     opcao = int(input('Selecione a funcionalidade:\n 1 - Busca\n 2 - Download\n 3 - Excluir: '))
 
     if opcao == 1:
-        Builder.Buscar()
+        ConcreteBuilder.Buscar()
     elif opcao == 2:
-        Builder.Download()
+        ConcreteBuilder.Download()
     elif opcao == 3:
-        Builder.Remover()
+        ConcreteBuilder.Remover()
 
 
 Facade()
