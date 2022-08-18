@@ -12,7 +12,7 @@ class Removedor:
         if os.path.exists(file):
             os.remove(file)
         else:
-            print('O arquivo não existe!')
+            print('O arquivo nao existe!')
 
 
 Removedor.Remover()
