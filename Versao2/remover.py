@@ -4,8 +4,6 @@ import os, sys
 from observer import Observer
 
 class Removedor:
-    Observers = Observer()
-
     def Remover():
         filename = str(input('Qual arquivo deseja remover? '))
         user = os.getlogin()
@@ -16,7 +14,8 @@ class Removedor:
             return True
         else:
             print('O arquivo nao existe!')
-
+            
+    Observer(Remover())
     def Notificar(self, *args, **kwargs):
         if Removedor.Remover() == True:
             Observer.notify1()
