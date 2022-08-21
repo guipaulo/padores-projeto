@@ -15,9 +15,8 @@ class Removedor:
         else:
             print('O arquivo nao existe!')
             
-    Observer(Remover())
-    def Notificar(self, *args, **kwargs):
+    '''def Notificar(self, *args, **kwargs):
         if Removedor.Remover() == True:
-            Observer.notify1()
+            Observer.notify1()'''
 
 Removedor.Remover()
