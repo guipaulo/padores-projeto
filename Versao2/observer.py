@@ -1,5 +1,6 @@
 from remover import Removedor
 from downloader import Downloader
+from abc import ABC, abstractmethod
 
 class Observer(ABC):
     @abstractmethod
