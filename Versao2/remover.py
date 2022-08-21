@@ -22,3 +22,4 @@ class Removedor:
             Observer.notify1()
 
 Removedor.Remover()
+Obs1 = Observer()
