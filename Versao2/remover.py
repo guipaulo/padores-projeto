@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: latin-1 -*-
 import os, sys
-from observer import Observer
+from observer import ConcreteObserverA
 
 class Removedor:
     def Remover():
@@ -12,7 +12,7 @@ class Removedor:
         if os.path.exists(file):
             os.remove(file)
             return True
-            Observer.update()
+            ConcreteObserverA.update()
         else:
             print('O arquivo nao existe!')
 Removedor.Remover()
