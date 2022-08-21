@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: latin-1 -*-
-import os, sys
-from observer import ConcreteObserverA
+import os, pathlib
+#from observer import ConcreteObserverA
 
 class Removedor:
     def Remover():
@@ -9,10 +9,8 @@ class Removedor:
         user = os.getlogin()
         file = f'C:\\Users\\{user}\\Documentos\\{filename}'
 
-        if os.path.exists(file):
-            os.remove(file)
-            return True
-            ConcreteObserverA.update()
-        else:
-            print('O arquivo nao existe!')
+        try:
+            file.unlink()
+        except OSError as e:
+            print(f"Error:{ e.strerror}")
 Removedor.Remover()
