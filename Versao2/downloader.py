@@ -1,7 +1,7 @@
 import os
 from urllib import response
 import requests
-from observer import Observador
+from observer import Observer
 
 class Downloader:
     def Download(Observador):
@@ -19,6 +19,7 @@ class Downloader:
                 arq_path = os.path.join(dir, os.path.basename(url))
                 with open(arq_path, 'wb') as f:
                     f.write(response.content)
-        
+                    return True
+                    Observer.update2()
 
 Downloader.Download()

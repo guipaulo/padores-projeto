@@ -1,9 +1,19 @@
-import remover
+from remover import Removedor
+from downloader import Downloader
 
-class Observer:
+class Observer(ABC):
+    @abstractmethod
+    def update (self, subject: Removedor()) -> None:
+        pass
+    def update2 (self, subject: Downloader()) -> None:
+        pass
 
-    def __init__(self, observable):
-        observable.subscribe(remover.Removedor.Remover())
+class ConcreteObserverA(Observer):
+    def update(self, subject: Removedor) -> None:
+        if subject.Remover() == True:
+            return True
 
-    def notify1(self,observable,*args,**kwargs):
-        print (f'O arquivo foi removido!')
+class ConcreteObserverB(Observer):
+    def update(self, subject: Downloader) -> None:
+        if subject.Download() == True:
+            return True

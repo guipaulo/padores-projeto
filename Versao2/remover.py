@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: latin-1 -*-
 import os, sys
+from observer import Observer
 
 class Removedor:
     def Remover():
@@ -11,11 +12,7 @@ class Removedor:
         if os.path.exists(file):
             os.remove(file)
             return True
+            Observer.update()
         else:
             print('O arquivo nao existe!')
-
-    '''def Notificar(self, *args, **kwargs):
-        if Removedor.Remover() == True:
-            Observer.notify1()'''
-
 Removedor.Remover()
