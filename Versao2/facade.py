@@ -2,7 +2,7 @@ from builder import ConcreteBuilder
 
 
 class Facade:
-    opcao = int(input('Selecione a funcionalidade:\n 1 - Busca\n 2 - Download\n 3 - Excluir: '))
+    opcao = int(input('Selecione a funcionalidade:\n 1 - Busca\n 2 - Download\n 3 - Excluir\n '))
 
     if opcao == 1:
         ConcreteBuilder.Buscar()

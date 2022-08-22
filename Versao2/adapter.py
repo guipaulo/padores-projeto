@@ -18,7 +18,7 @@ class Pdf:
             number_of_pages = read_pdf.getNumPages()
             page = read_pdf.pages[0]
             self.page_content = page.extractText()
-"""
+    """
     Converter o documento de pdf para txt e gravar o mesmo.
     """
 class Adapter(Pdf):
@@ -26,7 +26,11 @@ class Adapter(Pdf):
         self.name = name
 
     def gravar_documento(self,documentosaida):
-        with open(documentosaida, 'w')  as self.documento:
+        self.documentosaida = documentosaida
+        user = os.getlogin()
+        dir = f"C:\\Users\\{user}\\Documents"
+        arq_path = os.path.join(dir, documentosaida)
+        with open(arq_path, 'w')  as self.documento:
             self.documento.write(self.page_content)
             return self.page_content
 '''
