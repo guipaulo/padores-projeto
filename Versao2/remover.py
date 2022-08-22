@@ -5,7 +5,7 @@ from memento import Memento
 
 class Removedor:
     def Remover():
-        filename = str(input('Qual arquivo deseja remover? '))
+        filename = (input('Qual arquivo deseja remover? '))
         user = os.getlogin()
 
         Memento.ExcluiMemento(filename)
