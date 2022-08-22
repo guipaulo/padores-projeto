@@ -4,7 +4,7 @@ import os
 from memento import Memento
 
 class Removedor:
-    def Remover():
+    def Remover(Observador):
         filename = (input('Qual arquivo deseja remover? '))
         user = os.getlogin()
 
@@ -15,3 +15,7 @@ class Removedor:
             Memento.RetornaMemento(filename)
         elif Undo == 'N':
             Memento.ExcluiPermanente(filename)
+
+    def Notificar(self):
+        if Memento.ExcluiMemento():
+            return True

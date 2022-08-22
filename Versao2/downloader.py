@@ -1,10 +1,9 @@
 import os
 from urllib import response
 import requests
-#from observer import Observer
 
 class Downloader:
-    def Download():
+    def Download(Observador):
         user = os.getlogin()
         dir = f'F:\RepositorioProjeto'
         urls = []
@@ -19,4 +18,7 @@ class Downloader:
                 arq_path = os.path.join(dir, os.path.basename(url))
                 with open(arq_path, 'wb') as f:
                     f.write(response.content)
-                    return True
+
+    def Notificar(self):
+        if Downloader.Download():
+            return True
