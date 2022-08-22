@@ -28,7 +28,7 @@ class Adapter(Pdf):
     def gravar_documento(self,documentosaida):
         self.documentosaida = documentosaida
         user = os.getlogin()
-        dir = f"F:\\RepositorioProjeto"
+        dir = f'F:\RepositorioProjeto'
         arq_path = os.path.join(dir, documentosaida)
         with open(arq_path, 'w')  as self.documento:
             self.documento.write(self.page_content)
@@ -39,10 +39,16 @@ class Listadocumentos(Adapter):
     def __init__(self,documento):
         self.documento = documento
 
-    def gravar_documento_lista(self):
-        lista_documentos = []
-        lista_documentos.append(self.documento)
-        print(lista_documentos)
+    def gravar_documento_lista(self, banco,titulo):
+        self.banco = banco
+        self.titulo = titulo
+        print(self.banco)
+        print(self.titulo)
+
+    def banco(self):
+        return self.banco
+    def titulo(self):
+        return self.titulo
 
 d1 = Pdf('pdf')
 documentopdf = input("digite o nome do documento que deseja converter em formato pdf")
@@ -51,5 +57,6 @@ a1 = Adapter('documento')
 a1.ler_documento(documentopdf)
 documentotxt = input("digite o nome do documento que deseja salvar em formato txt")
 a1.gravar_documento(documentotxt)
-l1 = Listadocumentos(a1.gravar_documento)
-l1.gravar_documento_lista()
+banco = input("digite o nome do banco em que deseja salvar o documento com formato txt")
+l1 = Listadocumentos(documentotxt)
+l1.gravar_documento_lista(banco,documentotxt)
