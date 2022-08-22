@@ -15,6 +15,3 @@ class Removedor:
             Memento.RetornaMemento(filename)
         elif Undo == 'N':
             Memento.ExcluiPermanente(filename)
-
-            
-Removedor.Remover()

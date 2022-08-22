@@ -10,7 +10,8 @@ import PyPDF2
 class Pdf:
     def _init_(self, tipo):
         self.tipo = tipo
-
+    '''
+    Receber de salva documento'''
     def ler_documento(self,documentoleitura):
         with open(documentoleitura, "rb") as pdf_file:
             read_pdf = PyPDF2.PdfFileReader(pdf_file)
@@ -28,7 +29,8 @@ class Adapter(Pdf):
         with open(documentosaida, 'w')  as self.documento:
             self.documento.write(self.page_content)
             return self.page_content
-
+'''
+Criar a lista de titulos ou diretorios dos documentos'''
 class Listadocumentos(Adapter):
     def _init_(self,documento):
         self.documento = documento
@@ -39,9 +41,11 @@ class Listadocumentos(Adapter):
         print(lista_documentos)
 
 d1 = Pdf('pdf')
-d1.ler_documento("arquivo01.pdf")
+documentopdf = input("digite o nome do documento que deseja converter em formato pdf")
+d1.ler_documento(documentopdf)
 a1 = Adapter('documento')
-a1.ler_documento("arquivo01.pdf")
-a1.gravar_documento("ARQUIVOtestea.txt")
+a1.ler_documento(documentopdf)
+documentotxt = input("digite o nome do documento que deseja salvar em formato txt")
+a1.gravar_documento(documentotxt)
 l1 = Listadocumentos(a1.gravar_documento)
 l1.gravar_documento_lista()

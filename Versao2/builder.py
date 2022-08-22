@@ -28,17 +28,11 @@ class Builder(ABC):
         pass
 
 class ConcreteBuilder:
-
-    def __init__(self) -> None:
-        self.buscador = buscador.Buscador.Busca()
-        self.downloader = downloader.Downloader.Download()
-        self.remover = remover.Removedor.Remover()
-        self.ExcluiMemento = memento.Memento.ExcluiMemento()
-        self.RetornaMemento = memento.Memento.RetornaMemento()
-        self.ExcluiPermanente = memento.Memento.ExcluiPermanente()
-
     def Buscar():
-        return buscador.Buscador.Busca()
+        buscador.Buscador('palavra')
+        palavra = input("Digite a palavra-chave:")
+        arquivo = "ARQUIVO01.txt"
+        buscador.Busca(arquivo,palavra)
 
     def Download():
         return downloader.Downloader.Download()

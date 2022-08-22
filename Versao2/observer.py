@@ -1,4 +1,4 @@
-from remover import Removedor
+'''from remover import Removedor
 from downloader import Downloader
 from abc import ABC, abstractmethod
 
@@ -17,4 +17,4 @@ class ConcreteObserverA(Observer):
 class ConcreteObserverB(Observer):
     def update(self, subject: Downloader) -> None:
         if subject.Download() == True:
-            return True
+            return True'''

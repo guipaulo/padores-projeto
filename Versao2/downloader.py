@@ -1,10 +1,10 @@
 import os
 from urllib import response
 import requests
-from observer import Observer
+#from observer import Observer
 
 class Downloader:
-    def Download(Observador):
+    def Download():
         user = os.getlogin()
         dir = f"C:\\Users\\{user}\\Documents"
         urls = []
@@ -21,5 +21,3 @@ class Downloader:
                     f.write(response.content)
                     return True
                     Observer.update2()
-
-Downloader.Download()

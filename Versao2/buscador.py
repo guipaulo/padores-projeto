@@ -16,9 +16,3 @@ class Buscador:
                 self.lista.append(arquivo)
         ficheiro.close()
         print(self.lista)
-
-b1 = Buscador('palavra')
-palavra = input("Digite a palavra-chave:")
-arquivo = "ARQUIVO01.txt"
-b1.Busca(arquivo,palavra)
-
