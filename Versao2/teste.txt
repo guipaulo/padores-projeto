@@ -1,0 +1,6 @@
+Disciplina: Sistemas Operacionais
+Discente: Paulo Guilherme Silva de Araújo - Engenharia de Computação
+Atividade Prática - Sistema de Arquivos
+1) No terminal, vá até o diretório /proc e liste seu conteúdo (ls -l). Observe que os
+subdiretórios correspondem aos PIDs dos processos correntes (execute ps -lax e verifique
+isso).

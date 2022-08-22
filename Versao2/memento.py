@@ -7,12 +7,12 @@ import shutil
 user = os.getlogin()
 class Memento:   
     def ExcluiMemento(filename):
-        shutil.copy2 (f'C:\\Users\\{user}\\Documents\\{filename}', f'C:\\Users\\{user}\\Memento')
-        os.remove(f'C:\\Users\\{user}\\Documents\\{filename}')
+        shutil.copy2 (f'F:\RepositorioProjeto', f'F:\Memento')
+        os.remove(f'F:\RepositorioProjeto')
 
     def RetornaMemento(filename):
-        shutil.copy2 (f'C:\\Users\\{user}\\Memento\\{filename}', f'C:\\Users\\{user}\\Documents')
-        os.remove(f'C:\\Users\\{user}\\Memento\\{filename}')
+        shutil.copy2 (f'F:\Memento\\{filename}', f'F:\RepositorioProjeto')
+        os.remove(f'F:\Memento\\{filename}')
 
     def ExcluiPermanente(filename):
-        os.remove(f'C:\\Users\\{user}\\Memento\\{filename}')
+        os.remove(f'F:\RepositorioProjeto')

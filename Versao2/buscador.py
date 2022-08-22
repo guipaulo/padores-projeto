@@ -3,14 +3,14 @@ import sys
 import os
 debug = True
 class Buscador:
-    def _init_(self,name):
+    def __init__(self,name):
         self.name = name
         self.lista = []
     def Busca(self,arquivo,palavra):
         self.arquivo = arquivo
         self.palavra = palavra
         user = os.getlogin()
-        dir = f"C:\\Users\\{user}\\Documents"
+        dir = f'F:\RepositorioProjeto'
         arq_path = os.path.join(dir, self.arquivo)
         ficheiro = open(arq_path, "r")
         line_num = 0
@@ -24,5 +24,5 @@ class Buscador:
 b1 = Buscador('palavra')
 palavra = input("Digite a palavra-chave:")
 '''Falta adicionar no buscador a função de buscar em um arquivo, e depois em outro'''
-arquivo = "arqdoc.txt"
+arquivo = "a1.txt"
 b1.Busca(arquivo, palavra)

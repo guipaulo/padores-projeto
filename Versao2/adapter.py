@@ -8,7 +8,7 @@ import PyPDF2
     Define o tipo de documento usado e receber o mesmo.
     """
 class Pdf:
-    def _init_(self, tipo):
+    def __init__(self, tipo):
         self.tipo = tipo
     '''
     Receber de salva documento'''
@@ -18,17 +18,17 @@ class Pdf:
             number_of_pages = read_pdf.getNumPages()
             page = read_pdf.pages[0]
             self.page_content = page.extractText()
-    """
+"""
     Converter o documento de pdf para txt e gravar o mesmo.
     """
 class Adapter(Pdf):
-    def _init_(self,name):
+    def __init__(self,name):
         self.name = name
 
     def gravar_documento(self,documentosaida):
         self.documentosaida = documentosaida
         user = os.getlogin()
-        dir = f"C:\\Users\\{user}\\Documents"
+        dir = f"F:\\RepositorioProjeto"
         arq_path = os.path.join(dir, documentosaida)
         with open(arq_path, 'w')  as self.documento:
             self.documento.write(self.page_content)
@@ -36,7 +36,7 @@ class Adapter(Pdf):
 '''
 Criar a lista de titulos ou diretorios dos documentos'''
 class Listadocumentos(Adapter):
-    def _init_(self,documento):
+    def __init__(self,documento):
         self.documento = documento
 
     def gravar_documento_lista(self):

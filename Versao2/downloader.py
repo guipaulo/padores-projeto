@@ -6,7 +6,7 @@ import requests
 class Downloader:
     def Download():
         user = os.getlogin()
-        dir = f"C:\\Users\\{user}\\Documents"
+        dir = f'F:\RepositorioProjeto'
         urls = []
         entrada = str(input('Insira o(s) URL(s) do arquivo(s) desejado(s) '))
         entrada.split(',')
@@ -20,4 +20,3 @@ class Downloader:
                 with open(arq_path, 'wb') as f:
                     f.write(response.content)
                     return True
-                    Observer.update2()
