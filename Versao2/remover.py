@@ -1,16 +1,20 @@
 #!/usr/bin/python
 # -*- coding: latin-1 -*-
 import os
+from memento import Memento
 
 class Removedor:
     def Remover():
         filename = str(input('Qual arquivo deseja remover? '))
         user = os.getlogin()
-        file = f'C:\\Users\\{user}\\Repositorio\\{filename}'
 
-        if os.path.exists(file):
-            os.remove(file)
-            return True
-        else:
-            print('O arquivo nao existe!')
+        Memento.ExcluiMemento(filename)
+
+        Undo = input('Arquivo excluido, deseja refazer a operacao? ')
+        if Undo == 'S':
+            Memento.RetornaMemento(filename)
+        elif Undo == 'N':
+            Memento.ExcluiPermanente(filename)
+
+            
 Removedor.Remover()

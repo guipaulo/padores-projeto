@@ -16,6 +16,3 @@ class Memento:
 
     def ExcluiPermanente(filename):
         os.remove(f'C:\\Users\\{user}\\Memento\\{filename}')
-
-#Memento.ExcluiMemento('arquivo.txt')
-Memento.ExcluiPermanente('arquivo.txt')

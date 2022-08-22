@@ -1,6 +1,7 @@
 import buscador
 import downloader
 import remover
+import memento
 from abc import ABC, abstractmethod
 
 '''DIRETOR É IMPLEMENTADO NA FACHADA, QUE DEFINE A ORDEM
@@ -17,12 +18,24 @@ class Builder(ABC):
     def Remover(self) -> None:
         pass
 
+    def ExcluiMemento(self) -> None:
+        pass
+
+    def RetornaMemento(self) -> None:
+        pass
+
+    def ExcluiPermanente(self) -> None:
+        pass
+
 class ConcreteBuilder:
 
     def __init__(self) -> None:
-        self.buscador = buscador.Buscador()
-        self.downloader = downloader.Downloader()
-        self.remover = remover.Removedor()
+        self.buscador = buscador.Buscador.Busca()
+        self.downloader = downloader.Downloader.Download()
+        self.remover = remover.Removedor.Remover()
+        self.ExcluiMemento = memento.Memento.ExcluiMemento()
+        self.RetornaMemento = memento.Memento.RetornaMemento()
+        self.ExcluiPermanente = memento.Memento.ExcluiPermanente()
 
     def Buscar():
         return buscador.Buscador.Busca()
@@ -32,3 +45,12 @@ class ConcreteBuilder:
 
     def Remover():
         return remover.Removedor.Remover()
+
+    def ExcluiMemento():
+        return memento.Memento.ExcluiMemento()
+    
+    def RetornaMemento():
+        return memento.Memento.RetornaMemento()
+
+    def ExcluirPermamente():
+        return memento.Memento.ExcluiPermanente()
