@@ -46,6 +46,3 @@ class BancoPadroes(BancosChain):
         dirPath = f"F:\RepositorioProjeto\BancoPadroes"
         result = [f for f in os.listdir(dirPath) if os.path.isfile(os.path.join(dirPath, f))]
         return result
-'''b1 = BancoIa('teste')
-b1.exibe()
-'''

@@ -29,10 +29,10 @@ class Builder(ABC):
 
 class ConcreteBuilder:
     def Buscar():
-        buscador.Buscador('palavra')
-        palavra = input("Digite a palavra-chave:")
-        arquivo = "ARQUIVO01.txt"
-        buscador.Busca(arquivo,palavra)
+        b1 = buscador.Buscador('palavra')
+        bancobusca = input("Digite em qual banco deseja buscar: \n IA: Para buscar em Inteligencia Artificial\n ML: Para buscar em Machine Learning\n Padroes: Para buscar em Padroes de Projeto")
+        palavra = input("Digite a palavra-chave: ")
+        b1.Busca(palavra, bancobusca)
 
     def Download():
         return downloader.Downloader.Download()
