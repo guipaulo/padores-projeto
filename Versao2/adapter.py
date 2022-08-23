@@ -16,7 +16,7 @@ class Pdf:
     def ler_documento(self,documentoleitura):
         self.documentoleitura = documentoleitura
         user1 = os.getlogin()
-        dir1 = f"C:\\Users\\{user1}\\Documents"
+        dir1 = f"F:\RepositorioProjeto"
         arq_path1 = os.path.join(dir1, self.documentoleitura)
         with open(arq_path1, "rb") as pdf_file:
             read_pdf = PyPDF2.PdfFileReader(pdf_file)
@@ -45,13 +45,3 @@ class Adapter(Pdf):
         with open(arq_path2, 'w')  as self.documento:
             self.documento.write(self.page_content)
             return self.page_content
-
-
-d1 = Pdf('pdf')
-documentopdf = input("digite o nome do documento que deseja converter em formato pdf\n")
-d1.ler_documento(documentopdf)
-a1 = Adapter('documento')
-a1.ler_documento(documentopdf)
-documentotxt = input("digite o nome do documento que deseja salvar em formato txt\n")
-banco = input("digite o nome do banco em que deseja salvar o documento com formato txt\n")
-a1.gravar_documento(documentotxt,banco)
