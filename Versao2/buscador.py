@@ -3,7 +3,7 @@
 import fileinput
 import sys
 import os
-import Chainofresponsability
+#import Chainofresponsability
 from chain_of_responsability import BancoIa, BancoMl, BancoPadroes
 debug = True
 class Buscador:
@@ -15,13 +15,13 @@ class Buscador:
         self.banco = banco
         user = os.getlogin()
         if self.banco == "IA":
-            dir = f"C:\\Users\\{user}\\Documents\\BancoIa"
+            dir = f"F:\RepositorioProjeto\BancoIA"
             arquivos = BancoIa(palavra)
         elif self.banco == "ML":
-            dir = f"C:\\Users\\{user}\\Documents\\BancoMl"
+            dir = f"F:\RepositorioProjeto\BancoML"
             arquivos = BancoMl(palavra)
         elif self.banco == "Padroes":
-            dir = f"C:\\Users\\{user}\\Documents\\BancoPadroes"
+            dir = f"F:\RepositorioProjeto\BancoPadroes"
             arquivos = BancoPadroes(palavra)
         larquivos = arquivos.exibe()
         for i in range(len(larquivos)):
