@@ -36,11 +36,11 @@ class Adapter(Pdf):
         self.banco = banco
         user2 = os.getlogin()
         if banco == "IA":
-            dir2 = f"C:\\Users\\{user2}\\Documents\\BancoIa"
+            dir2 = f"F:\RepositorioProjeto\BancoIA"
         elif banco == "ML":
-            dir2 = f"C:\\Users\\{user2}\\Documents\\BancoMl"
+            dir2 = f"F:\RepositorioProjeto\BancoML"
         elif banco == "Padroes":
-            dir2 = f"C:\\Users\\{user2}\\Documents\\BancoPadroes"
+            dir2 = f"F:\RepositorioProjeto\BancoPadroes"
         arq_path2 = os.path.join(dir2, self.documentosaida)
         with open(arq_path2, 'w')  as self.documento:
             self.documento.write(self.page_content)
