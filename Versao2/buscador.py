@@ -37,8 +37,8 @@ class Buscador:
         print(self.lista)
 
 b1 = Buscador('palavra')
-bancobusca = input("Digite em qual banco deseja buscar:\n IA: Para buscar em Inteligencia Artificial\n ML: Para buscar em Machine Learning\n Padroes: Para buscar em Padroes de Projeto")
-palavra = input("Digite a palavra-chave:")
+bancobusca = input("Digite em qual banco deseja buscar: \n IA: Para buscar em Inteligencia Artificial\n ML: Para buscar em Machine Learning\n Padroes: Para buscar em Padroes de Projeto")
+palavra = input("Digite a palavra-chave: ")
 '''Falta adicionar no buscador a função de buscar em um arquivo, e depois em outro'''
 b1.Busca(palavra,bancobusca)
 

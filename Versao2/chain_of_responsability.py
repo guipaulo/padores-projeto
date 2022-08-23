@@ -21,7 +21,7 @@ class BancoIa(BancosChain):
     def exibe (self):
         path = 'bancoia'
         user = os.getlogin()
-        dirPath = f"C:\\Users\\{user}\\Documents\\BancoIa"
+        dirPath = f"F:\RepositorioProjeto\BancoIA"
         result = [f for f in os.listdir(dirPath) if os.path.isfile(os.path.join(dirPath, f))]
         return result
 
@@ -32,7 +32,7 @@ class BancoMl(BancosChain):
     def exibe (self):
         path = 'bancoml'
         user = os.getlogin()
-        dirPath = f"C:\\Users\\{user}\\Documents\\BancoMl"
+        dirPath = f"F:\RepositorioProjeto\BancoML"
         result = [f for f in os.listdir(dirPath) if os.path.isfile(os.path.join(dirPath, f))]
         return result
 
@@ -43,7 +43,7 @@ class BancoPadroes(BancosChain):
     def exibe (self):
         path = 'bancopadroes'
         user = os.getlogin()
-        dirPath = f"C:\\Users\\{user}\\Documents\\BancoPadroes"
+        dirPath = f"F:\RepositorioProjeto\BancoPadroes"
         result = [f for f in os.listdir(dirPath) if os.path.isfile(os.path.join(dirPath, f))]
         return result
 '''b1 = BancoIa('teste')
