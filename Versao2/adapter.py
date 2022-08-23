@@ -2,6 +2,7 @@
 # -- coding: latin-1 --
 import os, sys
 import PyPDF2
+
 '''Converter pdf para txt
 '''
 """
@@ -13,7 +14,11 @@ class Pdf:
     '''
     Receber de salva documento'''
     def ler_documento(self,documentoleitura):
-        with open(documentoleitura, "rb") as pdf_file:
+        self.documentoleitura = documentoleitura
+        user1 = os.getlogin()
+        dir1 = f"C:\\Users\\{user1}\\Documents"
+        arq_path1 = os.path.join(dir1, self.documentoleitura)
+        with open(arq_path1, "rb") as pdf_file:
             read_pdf = PyPDF2.PdfFileReader(pdf_file)
             number_of_pages = read_pdf.getNumPages()
             page = read_pdf.pages[0]
@@ -21,42 +26,32 @@ class Pdf:
 """
     Converter o documento de pdf para txt e gravar o mesmo.
     """
+
 class Adapter(Pdf):
     def __init__(self,name):
         self.name = name
 
-    def gravar_documento(self,documentosaida):
+    def gravar_documento(self,documentosaida,banco):
         self.documentosaida = documentosaida
-        user = os.getlogin()
-        dir = f'F:\RepositorioProjeto'
-        arq_path = os.path.join(dir, documentosaida)
-        with open(arq_path, 'w')  as self.documento:
+        self.banco = banco
+        user2 = os.getlogin()
+        if banco == "IA":
+            dir2 = f"C:\\Users\\{user2}\\Documents\\BancoIa"
+        elif banco == "ML":
+            dir2 = f"C:\\Users\\{user2}\\Documents\\BancoMl"
+        elif banco == "Padroes":
+            dir2 = f"C:\\Users\\{user2}\\Documents\\BancoPadroes"
+        arq_path2 = os.path.join(dir2, self.documentosaida)
+        with open(arq_path2, 'w')  as self.documento:
             self.documento.write(self.page_content)
             return self.page_content
-'''
-Criar a lista de titulos ou diretorios dos documentos'''
-class Listadocumentos(Adapter):
-    def __init__(self,documento):
-        self.documento = documento
 
-    def gravar_documento_lista(self, banco,titulo):
-        self.banco = banco
-        self.titulo = titulo
-        print(self.banco)
-        print(self.titulo)
-
-    def banco(self):
-        return self.banco
-    def titulo(self):
-        return self.titulo
 
 d1 = Pdf('pdf')
-documentopdf = input("digite o nome do documento que deseja converter em formato pdf")
+documentopdf = input("digite o nome do documento que deseja converter em formato pdf\n")
 d1.ler_documento(documentopdf)
 a1 = Adapter('documento')
 a1.ler_documento(documentopdf)
-documentotxt = input("digite o nome do documento que deseja salvar em formato txt")
-a1.gravar_documento(documentotxt)
-banco = input("digite o nome do banco em que deseja salvar o documento com formato txt")
-l1 = Listadocumentos(documentotxt)
-l1.gravar_documento_lista(banco,documentotxt)
+documentotxt = input("digite o nome do documento que deseja salvar em formato txt\n")
+banco = input("digite o nome do banco em que deseja salvar o documento com formato txt\n")
+a1.gravar_documento(documentotxt,banco)
