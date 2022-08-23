@@ -4,7 +4,7 @@ import os
 from memento import Memento
 
 class Removedor:
-    def Remover(Observador):
+    def Remover():
         filename = (input('Qual arquivo deseja remover? '))
         user = os.getlogin()
 

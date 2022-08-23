@@ -3,7 +3,7 @@ from urllib import response
 import requests
 
 class Downloader:
-    def Download(Observador):
+    def Download():
         user = os.getlogin()
         dir = f'F:\RepositorioProjeto'
         urls = []
