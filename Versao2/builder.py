@@ -30,7 +30,7 @@ class Builder(ABC):
 class ConcreteBuilder:
     def Buscar():
         b1 = buscador.Buscador('palavra')
-        bancobusca = input("Digite em qual banco deseja buscar: \n IA: Para buscar em Inteligencia Artificial\n ML: Para buscar em Machine Learning\n Padroes: Para buscar em Padroes de Projeto")
+        bancobusca = input("Digite em qual banco deseja buscar: \n IA: Para buscar em Inteligencia Artificial\n ML: Para buscar em Machine Learning\n Padroes: Para buscar em Padroes de Projeto\n")
         palavra = input("Digite a palavra-chave: ")
         b1.Busca(palavra, bancobusca)
 
