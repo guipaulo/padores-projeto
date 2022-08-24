@@ -10,14 +10,14 @@ class Facade:
         ConcreteBuilder.Buscar()
     elif opcao == 2:
         ConcreteBuilder.Download()
-        documentoleitura = input("digite o nome do documento que deseja converter em formato pdf\n")
-        pdf = Pdf(documentoleitura)
-        pdf.ler_documento()
-        documentosaida = input("digite o nome do documento que deseja salvar em formato txt\n")
+        d1 = Pdf('pdf')
+        documentopdf = input("digite o nome do documento que deseja converter em formato pdf\n")
+        d1.ler_documento(documentopdf)
+        a1 = Adapter('documento')
+        a1.ler_documento(documentopdf)
+        documentotxt = input("digite o nome do documento que deseja salvar em formato txt\n")
         banco = input("digite o nome do banco em que deseja salvar o documento com formato txt\n")
-        adapter = Adapter(documentosaida, banco, documentoleitura)
-        adapter.ler_documento()
-        adapter.gravar_documento()
+        a1.gravar_documento(documentotxt, banco)
     elif opcao == 3:
         ConcreteBuilder.Remover()
 

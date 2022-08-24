@@ -6,10 +6,9 @@ from memento import Memento
 class Removedor:
     def Remover():
         filename = (input('Qual arquivo deseja remover? '))
-        banco = input('De qual Banco deseja excluir? ')
         user = os.getlogin()
 
-        Memento.ExcluiMemento(filename, banco)
+        Memento.ExcluiMemento(filename)
 
         Undo = input('Arquivo excluido, deseja refazer a operacao? ')
         if Undo == 'S':

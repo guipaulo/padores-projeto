@@ -3,6 +3,11 @@ import downloader
 import remover
 import memento
 from abc import ABC, abstractmethod
+
+'''DIRETOR É IMPLEMENTADO NA FACHADA, QUE DEFINE A ORDEM
+DE INICIALIZAÇÃO DE CADA MÓDULO'''
+
+
 class Builder(ABC):
 
     def Buscar(self) -> None:

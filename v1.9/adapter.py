@@ -9,11 +9,12 @@ import PyPDF2
     Define o tipo de documento usado e receber o mesmo.
     """
 class Pdf:
-    def __init__(self, documentoleitura):
-        self.documentoleitura = documentoleitura
+    def __init__(self, tipo):
+        self.tipo = tipo
     '''
     Receber de salva documento'''
-    def ler_documento(self):
+    def ler_documento(self,documentoleitura):
+        self.documentoleitura = documentoleitura
         user1 = os.getlogin()
         dir1 = f"F:\RepositorioProjeto"
         arq_path1 = os.path.join(dir1, self.documentoleitura)
@@ -27,18 +28,18 @@ class Pdf:
     """
 
 class Adapter(Pdf):
-    def __init__(self,documentosaida,banco, documentoleitura):
-        super().__init__(documentoleitura)
+    def __init__(self,name):
+        self.name = name
+
+    def gravar_documento(self,documentosaida,banco):
         self.documentosaida = documentosaida
         self.banco = banco
-
-    def gravar_documento(self):
         user2 = os.getlogin()
-        if self.banco == "IA":
+        if banco == "IA":
             dir2 = f"F:\RepositorioProjeto\BancoIA"
-        elif self.banco == "ML":
+        elif banco == "ML":
             dir2 = f"F:\RepositorioProjeto\BancoML"
-        elif self.banco == "Padroes":
+        elif banco == "Padroes":
             dir2 = f"F:\RepositorioProjeto\BancoPadroes"
         arq_path2 = os.path.join(dir2, self.documentosaida)
         with open(arq_path2, 'w')  as self.documento:

@@ -4,7 +4,7 @@ import fileinput
 import sys
 import os
 #import Chainofresponsability
-from Chainofresponsability import BancoIa, BancoMl, BancoPadroes
+from chain_of_responsability import BancoIa, BancoMl, BancoPadroes
 debug = True
 class Buscador:
     def __init__(self,name):
@@ -27,7 +27,7 @@ class Buscador:
         for i in range(len(larquivos)):
             arquivo = larquivos[i]
             arq_path = os.path.join(dir, arquivo)
-            ficheiro = open(arq_path, "r",encoding='utf-8', errors='ignore')
+            ficheiro = open(arq_path, "r")
             for line in ficheiro.readlines():
                 if self.palavra in line and arquivo not in self.lista :
                     self.lista.append(arquivo)

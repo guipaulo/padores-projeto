@@ -6,18 +6,15 @@ class Downloader:
     def Download():
         user = os.getlogin()
         dir = f'F:\RepositorioProjeto'
-        urls = []
-        entrada = str(input('Insira o(s) URL(s) do arquivo(s) desejado(s) '))
-        entrada.split(',')
-        urls.append(entrada)
+        url = str(input('Insira o URL do documento desejado '))
+        response = requests.get(url)
 
-        for url in urls:
-            response = requests.get(url)
-
-            if response.status_code == 200:
-                arq_path = os.path.join(dir, os.path.basename(url))
-                with open(arq_path, 'wb') as f:
-                    f.write(response.content)
+        if response.status_code == 200:
+            arq_path = os.path.join(dir, os.path.basename(url))
+            with open(arq_path, 'wb') as f:
+                f.write(response.content)
+            print('O Documento', os.path.basename(url), "foi salvo no formato pdf na pasta escolhida")
+            print('O Documento', os.path.basename(url),'agora pode ser convertido do formato pdf para txt, para isso basta digitar o nome dele abaixo: ')
 
     def Notificar(self):
         if Downloader.Download():
